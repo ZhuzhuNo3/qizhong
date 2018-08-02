@@ -14,8 +14,8 @@ def get_pic(pagenum=1):
         picname = re.findall(r'/(\w+\.\w+)$',i)[0]
         #print(picname)
         try:
+            picb = requests.get(url_pic).content
             with open(picname,'wb') as f:
-                picb = requests.get(url_pic).content
                 f.write(picb)
             print('%s 下载成功'% picname)
         except:
